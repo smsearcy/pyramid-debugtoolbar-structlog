@@ -1,0 +1,51 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "pyramid-debugtoolbar-structlog"
+authors = [{name = "Scott Searcy", email = "smsearcy14@outlook.com"}]
+readme = "README.rst"
+license = {file = "LICENSE"}
+classifiers = [
+    "Intended Audience :: Developers",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Framework :: Pyramid",
+    "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+    "pyramid_debugtoolbar",
+    "pyramid-mako",
+    "structlog",
+]
+dynamic = ["version", "description"]
+
+[project.urls]
+Home = "https://github.com/smsearcy/pyramid-debugtoolbar-structlog"
+
+[project.optional-dependencies]
+demo = [
+    "pyramid",
+]
+lint = [
+    "flake8",
+    "flake8-bugbear",
+]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+dev = [
+    "pyramid-debugtoolbar-structlog[lint,test]",
+    "flit>=3.8",
+    "tox",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]

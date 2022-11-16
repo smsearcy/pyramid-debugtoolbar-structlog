@@ -1,0 +1,11 @@
+[flake8]
+max-line-length = 80
+max-complexity = 12
+extend-select =
+    # B950: bugbear's "Line too long"
+    B950
+extend-ignore =
+    # E501: Line too long (conflicts w/ bugbear)
+    E501
+    # E722: Bare except (ignored in favor of bugbear's B001)
+    E722
